@@ -38,7 +38,7 @@
   </footer>
 
 <script>
-var countDownDate = new Date("12 20 2020 23:59:55").getTime();
+var countDownDate = new Date("12 20 2020 16:00:00").getTime();
 
 var x = setInterval(function() {
 
@@ -56,12 +56,21 @@ var x = setInterval(function() {
     
     // Anlık olarak id="gerisayim" içine aktarılıyor
     //document.getElementById("gerisayim").innerHTML = days + " gün " + hours + " saat "
-    document.getElementById("gerisayim").innerHTML = minutes + " dakika " + seconds + " saniye Çok Az kaldı";
+    if (days > 0){ 
+      document.getElementById("gerisayim").innerHTML = days + " gün " + hours+  " saat "+ minutes + " dakika " + seconds + " saniye";
+    }
+    else if (hours > 0){
+      document.getElementById("gerisayim").innerHTML = hours+  " saat "+ minutes + " dakika " + seconds + " saniye";
+    }
+    else{
+      document.getElementById("gerisayim").innerHTML = minutes + " dakika " + seconds + " saniye";
+    }
+      // document.getElementById("gerisayim").innerHTML = minutes + " dakika " + seconds + " saniye";
     
     // Süre dolduğunda yazacak yazı.
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("gerisayim").innerHTML = "Süre doldu";
+        document.getElementById("gerisayim").innerHTML = "Bitmesine çok az kaldı...";
     }
 }, 1000);
 </script>
